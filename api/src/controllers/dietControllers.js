@@ -7,7 +7,7 @@ const getTotalDiets = async () =>{
 
     const totalDietDb = Diet.findAll()
 
-    let dietUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}})
+    let dietUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY1}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}})
     let dietApi = await dietUrl.data.results.map(e => e.diets)
     let totalDietApi = dietApi.flat()
     // console.log(totalDietApi)
@@ -18,10 +18,12 @@ const getTotalDiets = async () =>{
             where:{
             name: diet}
         }) 
-    });
+    })
 
     return await Diet.findAll()
 }
+
+
 
 module.exports = { getTotalDiets }   
 

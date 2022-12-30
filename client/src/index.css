@@ -1,6 +1,7 @@
 
 body {
-  background: url('https://img.freepik.com/foto-gratis/vegetales-puestos-izquierda-pizarra-negra_1220-685.jpg?w=1380&t=st=1671745054~exp=1671745654~hmac=efeeb1f71a3e795acad8271508c71b0955fb54c1982c7f5a349f3efa27330e91');
+  image-rendering: auto;
+  background-position: center center;
   background-size: cover;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {

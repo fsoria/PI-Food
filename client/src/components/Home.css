@@ -1,0 +1,56 @@
+.home{
+    background: transparent;
+    background-image: url('../images/brooke-lark-lcZ9NxhOSlo-unsplash.jpg');
+    min-height: 100vh;
+    max-height: 100wh;
+    flex-direction: column;
+    background-position: 0cm;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    scroll-behavior: initial;
+} 
+.navbar{
+    background-color: rgb(108, 107, 107);
+    height: 8rem;
+    flex-direction: row;
+    align-items: center;
+} 
+.recipeHome{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: large;
+    float: left;
+}
+.recipeCreate{
+    margin-right: 2rem;
+    float: right;
+    font-size: large;
+}
+.navbarSearch{
+    justify-content: center;
+    padding-top: 2rem;
+    float: center;
+    height: 10px;
+}
+
+.recipesBack{
+    background-color: transparent;
+    color: rgb(250, 246, 246);
+    font-weight: bold;
+    font-size: small;
+
+}
+.recipeFilter{
+    justify-content: flex-start;
+}
+
+.allRecipes{
+    column-count:4;
+    padding: 1px;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 1rem;
+    text-shadow: 6px 4px 5px rgba(15, 13, 13, 0.04);
+}

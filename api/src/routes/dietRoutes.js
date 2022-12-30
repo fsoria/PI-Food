@@ -1,8 +1,6 @@
 const { Router } = require('express');
 const { getTotalDiets } = require('../controllers/dietControllers');
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 const router = Router();
 

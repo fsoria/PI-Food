@@ -1,21 +1,18 @@
 import React from "react";
+import './Pagination.css'
 
 export default function Pagination({ recipesPerPage, allRecipes, pagination }){
-    const pageNumber = []
+    const pageNumbers = []
     
-    for (let i=1; i<= Math.ceil(allRecipes/recipesPerPage); i++){
-        pageNumber.push(i)
+    for (let i=0; i<= Math.ceil(allRecipes/recipesPerPage); i++){
+        pageNumbers.push(i)
     }
 
     return(
-        <nav>
-            <ul className="pagination">
-                {pageNumber?.map(number =>{(
-                    <li className="number" key={number}>
-                    <a onClick={() => pagination(number)}>{number}</a>
-                    </li>
-                )})}
-            </ul>
-        </nav>
-    )
-}
+    <nav>
+        <div className='pagination'>
+                {pageNumbers?.map(paged =>{(
+                <button className = 'paginationBotton' onClick={() => pagination(paged)}>{paged}</button> )})}
+        </div>
+    </nav>
+)}

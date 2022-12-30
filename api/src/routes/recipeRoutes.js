@@ -2,8 +2,6 @@ const express = require('express');
 const { Router } = require('express');
 const getTotalRecipes = require('../controllers/recipeControllers');
 const { Recipe, Diet } = require('../db');
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 
 const router = Router();
@@ -48,11 +46,8 @@ router.get('/:idReceta', async (req,res,next) =>{
 
 
 router.post('/', async (req,res,next) =>{
-    const {id,name,summary,healthScore,step,createdInDB, diet} = req.body
+    const {id,name,summary,healthScore,image,step,createdInDB, diet} = req.body
 
-    // if( !id && !name && !summary){
-    //     res.status(404).send('Require values')
-    // }
     try{
 
     const recipeCreated = await Recipe.create({
@@ -60,6 +55,7 @@ router.post('/', async (req,res,next) =>{
         name,
         summary,
         healthScore,
+        image,
         step,
         createdInDB
     })
