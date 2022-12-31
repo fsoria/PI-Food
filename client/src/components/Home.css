@@ -1,9 +1,8 @@
 .home{
     background: transparent;
-    background-image: url('../images/brooke-lark-lcZ9NxhOSlo-unsplash.jpg');
+    background-color: aliceblue;
     min-height: 100vh;
     max-height: 100wh;
-    flex-direction: column;
     background-position: 0cm;
     background-attachment: fixed;
     background-size: cover;
@@ -12,9 +11,7 @@
 } 
 .navbar{
     background-color: rgb(108, 107, 107);
-    height: 8rem;
-    flex-direction: row;
-    align-items: center;
+    height: 10rem;
 } 
 .recipeHome{
     margin-left: 2rem;
@@ -23,34 +20,44 @@
     font-size: large;
     float: left;
 }
+.navbarSearch{
+    padding: 2rem;
+    height: 15px;
+}
 .recipeCreate{
     margin-right: 2rem;
     float: right;
     font-size: large;
 }
-.navbarSearch{
+.totalFilters{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    padding-top: 2rem;
-    float: center;
-    height: 10px;
+    padding: 1px;
 }
-
 .recipesBack{
     background-color: transparent;
     color: rgb(250, 246, 246);
     font-weight: bold;
     font-size: small;
+    justify-content: center;
+}
 
-}
-.recipeFilter{
-    justify-content: flex-start;
-}
+
+
+
 
 .allRecipes{
     column-count:4;
     padding: 1px;
     justify-content: center;
+}
+.cardgrid{
+    border: #e9e7e7b4 solid 10px;
     overflow: hidden;
     margin-top: 1rem;
-    text-shadow: 6px 4px 5px rgba(15, 13, 13, 0.04);
+    justify-content: flex-start;
+    display: block;
+    flex-wrap: nowrap;
 }
+

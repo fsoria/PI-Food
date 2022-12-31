@@ -3,7 +3,7 @@ const { Recipe, Diet } = require('../db')
 
 
 const getTotalDiets = async () =>{
-    const { API_URL, API_KEY1 , API_KEY2, API_KEY3} = process.env;
+    const { API_URL, API_KEY1 , API_KEY2, API_KEY3, API_KEY4, API_KEY5} = process.env;
 
     const totalDietDb = Diet.findAll()
 

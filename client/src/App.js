@@ -10,6 +10,7 @@ function App() {
       <div className="App">
           <Route exact path='/' component={LandingPage}/>
           <Route path='/home' component={Home}/>
+          <Route path='/recipe' component={CreateRecipe}/>
       </div>
     </BrowserRouter>);
 }

@@ -1,24 +1,15 @@
 .pagination{
-    font-size: 3rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 10px 16px;
-    margin-bottom: 2rem;
-    
+    align-items: center;  
 }
 
 .paginationBotton {
     background-color: transparent;
-    outline: none;
-    border: none;
-    font-weight: bold;
     color: rgb(246, 244, 244);
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 16px;
-    margin-bottom: 2rem;   
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    margin-top: 7px;
+   cursor: pointer;
 }
 
