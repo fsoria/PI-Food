@@ -11,7 +11,7 @@
 } 
 .navbar{
     background-color: rgb(108, 107, 107);
-    height: 10rem;
+    height: 12rem;
 } 
 .recipeHome{
     margin-left: 2rem;
@@ -41,11 +41,8 @@
     font-weight: bold;
     font-size: small;
     justify-content: center;
+    cursor: pointer;
 }
-
-
-
-
 
 .allRecipes{
     column-count:4;
