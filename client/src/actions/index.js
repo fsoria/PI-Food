@@ -35,7 +35,7 @@ export function getDiets(){
        .then((json) =>{
            return dispatch({ 
             type: 'GET_DIETS', 
-            payload: json 
+            payload: json.map(e => e.name)
        })
     })
 }}

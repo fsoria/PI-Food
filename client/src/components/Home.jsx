@@ -36,6 +36,7 @@ useEffect( () => {
 function handleClick(e){
     e.preventDefault()
     dispatch(getRecipes())
+    setPage(1)
 }
 
 function handleFilterbyDiets(e){
@@ -68,6 +69,7 @@ return(
                     <Link to= '/recipes'>Create recipe</Link>
                 </div>
             <div className='totalFilters'>
+                <span>Order by</span>
                 <div className='recipeFilter'>
                     <select onChange={e => handleFilterbyDiets(e)}>
                         <option value= 'all diets'>All diets</option>
@@ -96,7 +98,7 @@ return(
                     </select>
                 </div>
             </div>
-                <button className='recipesBack' onClick= {(e=> handleClick(e))}>Back to all recipes</button>
+                <button className='recipesBack' onClick= {e => handleClick(e)}>Back to all recipes</button>
                 <Pagination recipesPerPage = {recipesPerPage} allRecipes = {allRecipes.length} pagination = {pagination}/>
         </div>
             <div className='allRecipes'>

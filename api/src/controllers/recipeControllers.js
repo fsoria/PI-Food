@@ -4,9 +4,9 @@ const { Recipe, Diet } = require('../db')
 
 
 const getApiRecipes =  async () => {
-    const { API_URL, API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5 } = process.env;
+    const { API_URL, API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5, API_KEY6 } = process.env;
   
-    const recipesUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY4}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}});
+    const recipesUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY6}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}});
     const recipesApi = await recipesUrl.data.results.map(e => {
         return{
             id: e.id,
@@ -14,6 +14,7 @@ const getApiRecipes =  async () => {
             summary: e.summary,
             healthScore: e.healthScore,
             image: e.image,
+            diets: e.diets,
             steps: e.analyzedInstructions.map(e => e.steps.map(e => {
                 return {
                     number: e.number,

@@ -7,21 +7,11 @@ import { Link } from "react-router-dom";
 
 function validate(input){
     let error = {}
-    if (!input.name){
-        error.name = 'A name is required'
-    }
-    if (!input.summary){
-        error.summary = 'A summary is required'
-    }
-    if (typeof(input.healthScore) !== 'number'){
-        error.healthScore = 'The healtscore should be a number'
-    }
-    if (Number.isInteger(input.healthScore) === false){
-        error.healthScore = 'The healtscore should be an integer'
-    }
-    if (input.healthScore>100){
-        error.healthScore = 'The healtscore must be less than 100'
-    }
+    if(!input.name){error.name = 'Add a name to your recipe'}
+    if(!input.summary){error.summary = 'Add a summary of your recipe'}
+    if(input.healthScore < 0 || input.healthScore > 100){error.healthScore = 'The healtscore should be a number between 1 and 100'}
+    if(!input.steps){error.steps = 'Add the steps for your recipe'}
+    if(!input.diets.length){error.diets = 'You must select at least one diet type'}
     return error
 }
 
@@ -35,7 +25,7 @@ export default function CreateRecipe(){
         name: '',
         summary: '',
         healthScore:'',
-        step: '',
+        steps: '',
         diets: []
 
     })
@@ -71,11 +61,17 @@ export default function CreateRecipe(){
             name: '',
             summary: '',
             healthScore:'',
-            step: '',
+            steps: '',
             diets: []
         })
     }
 
+    function handleDelete(e){
+        setInput({
+        ...input,
+         diets: input.diets.filter( d => d !== e)
+        })
+    }
 
     return(
 
@@ -86,28 +82,43 @@ export default function CreateRecipe(){
             <div>
                 <label>Name:</label>
                 <input type='text' value={input.name} name='name' onChange={e => handleChange(e)}/>
-                if(error.name?){(<p className="error">{error.name}</p>)}
+                {error.name && (<span className="error">{error.name}</span>)}
             </div>
             <div>
-                <label>Sumary:</label>
-                <input type='type' value={input.diets} name='diets'onChange={e => handleChange(e)}/>
-                error.summary?<p className="error">{error.summary}</p>
+                <label>Summary:</label>
+                <input type='text' value={input.summary} name='summary'onChange={e => handleChange(e)}/>
+                {error.summary && (<span className="error">{error.summary}</span>)}
             </div>
             <div>
                 <label>Image:</label>
                 <input type='text' value={input.image} name='image'onChange={e => handleChange(e)}/>
+                {error.image && (<span className="error">{error.image}</span>)}
+            </div>
+            <div>
+                <label>Steps:</label>
+                <textarea type="text" value={input.steps}  name="steps" rows="4" cols="40" onChange={e => handleChange(e)}/>
+                {error.steps && (<span className="error">{error.steps}</span>)}
             </div>
             <div>
                 <label>Healt score:</label>
-                <input type='nunmber' value={input.healthScore} name='healtScore'onChange={e => handleChange(e)}/>
+                <input type='number' value={input.healthScore} name='healthScore'onChange={e => handleChange(e)}/>
+                {error.healthScore && (<span className="error">{error.healthScore}</span>)}
             </div>
             <select onChange={e => handleSelect(e)}>
                 {diets.map(e => (
-                    <option value={e.name}>{e.name}</option>
+                    <option value={e.name}>{e}</option>
                 ))}
             </select>
         </form>
-        <ul>{input.diets.map(e => e + ',')}</ul>
+
+        {input.diets.map(e => {
+            return(
+            <div className="formDiets">
+                <span>{e} <button className="buttonXdiets" onClick={() => handleDelete(e)}>X</button> </span>
+            </div>
+        )}
+        )}
+    
         <button type="Submit">Create recipe</button>
 
     </div>
