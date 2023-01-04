@@ -40,6 +40,20 @@ export function getDiets(){
     })
 }}
 
+export function getRecipeDetails(id){
+    return async function(dispatch){
+        try{
+        const json = await axios.get('http://localhost:3001/recipes/'+ id)
+        return dispatch({
+            type: 'GET_RECIPE_DETAILS',
+            payload: json.data
+        })}
+        catch(error){
+            console.log(error)
+        }
+    }
+}
+
 export function postRecipe(payload){
     return async function(dispatch){
     const json = await axios.post('http://localhost:3001/recipes', payload)

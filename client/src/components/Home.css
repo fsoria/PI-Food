@@ -23,6 +23,7 @@
 .navbarSearch{
     padding: 2rem;
     height: 15px;
+    
 }
 .recipeCreate{
     margin-right: 2rem;
@@ -45,9 +46,12 @@
 }
 
 .allRecipes{
-    column-count:4;
-    padding: 1px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 270px);
+    gap: 50px;
+    padding: 40px;
     justify-content: center;
+    color: white;
 }
 .cardgrid{
     border: #e9e7e7b4 solid 10px;

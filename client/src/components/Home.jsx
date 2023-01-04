@@ -16,7 +16,7 @@ export default function Home(){
 const dispatch = useDispatch()
 
 const allRecipes = useSelector((state) => state.recipes)
-const allDiets = useSelector((state) => state.diets)
+// const allDiets = useSelector((state) => state.diets)
 const [ page, setPage ] = useState(1)
 const [ recipesPerPage, setRecipesPerPage ] = useState(9)
 const [ order, setOrder] = useState('')
@@ -61,15 +61,12 @@ return(
 
     <div className='home'>
         <div className='navbar'>
-                <div className='recipeHome'>
-                    <Link to= '/recipes'>Henry Food</Link>
-                 </div>
                 <SearchBar/>
                 <div className='recipeCreate'>
                     <Link to= '/recipes'>Create recipe</Link>
                 </div>
             <div className='totalFilters'>
-                <span>Order by</span>
+                <span>Filter by</span>
                 <div className='recipeFilter'>
                     <select onChange={e => handleFilterbyDiets(e)}>
                         <option value= 'all diets'>All diets</option>
@@ -86,12 +83,14 @@ return(
                     </select>
                 </div>
                 <div className='recipeOrderName'>
+                <span>Order by</span>
                     <select onChange={e => handleSortName(e)}>
                         <option value= 'asc'>A-Z</option>
                         <option value= 'desc'>Z-A</option>
                     </select>
                 </div>
                 <div className='recipeOrderHealth'>
+                <span>Healt score</span>
                     <select onChange={e => handleSortHealth(e)}>
                         <option value= 'asc'>Ascendent</option>
                         <option value= 'desc'>Descendent</option>
@@ -104,16 +103,16 @@ return(
             <div className='allRecipes'>
                 {recipesPage?.map(e => {
                     return(
+                        <Link to={`/recipes/:${e.id}`}>
                     <div className='cardgrid'>
-                        <Link to={'/home/'+ e.id}>
                         <CardRecipe  
                         name={e.name} 
                         image= {e.image} 
                         diets={e.diets}
                         healthScore={e.healthScore}
                         id={e.id}/>
-                        </Link>
                     </div>
+                        </Link>
                 )})}
             </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiets, postRecipe } from "../actions";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 
 function validate(input){
@@ -17,9 +17,9 @@ function validate(input){
 
 export default function CreateRecipe(){
     const dispatch = useDispatch()
+    const history = useHistory()
     const diets = useSelector((state) => (state.diets))
     const [ error, setError ] = useState({})
-
     const [ input, setInput] = useState({
         id:'',
         name: '',
@@ -54,8 +54,19 @@ export default function CreateRecipe(){
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(postRecipe(input))
-        alert('Recipe created')
+        if (Object.values(error).length > 0) {
+            alert("Please complete the information required")}
+        else if (
+            input.name === '' 
+            && input.image === '' 
+            && input.summary === '' 
+            && input.healthScore === '' 
+            && input.steps === '' 
+            && input.diets === '')
+            alert("Please complete the form")
+        else{
+        dispatch(postRecipe(input));
+        alert('Recipe created successfully!')
         setInput({
             id:'',
             name: '',
@@ -64,6 +75,8 @@ export default function CreateRecipe(){
             steps: '',
             diets: []
         })
+    history.push('/home')
+        }
     }
 
     function handleDelete(e){
@@ -108,19 +121,20 @@ export default function CreateRecipe(){
                 {diets.map(e => (
                     <option value={e.name}>{e}</option>
                 ))}
+                {error.diets && (<span>{error.diets}</span>)}
             </select>
-        </form>
 
         {input.diets.map(e => {
             return(
-            <div className="formDiets">
+                <div className="formDiets">
                 <span>{e} <button className="buttonXdiets" onClick={() => handleDelete(e)}>X</button> </span>
             </div>
         )}
         )}
     
-        <button type="Submit">Create recipe</button>
+        <button type="submit">Create recipe</button>
 
+        </form>
     </div>
     )
 }
