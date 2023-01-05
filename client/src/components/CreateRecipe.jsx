@@ -3,12 +3,16 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiets, postRecipe } from "../actions";
 import { Link, useHistory } from "react-router-dom";
+import './CreateRecipe.css'
 
 
 function validate(input){
     let error = {}
-    if(!input.name){error.name = 'Add a name to your recipe'}
-    if(!input.summary){error.summary = 'Add a summary of your recipe'}
+    if(!input.name.trim()){error.name = 'Add a name to your recipe'}
+    else if(parseInt(input.name)){error.name = 'Invalid name, should contain at least one letter at the beginning'}
+    if(!input.image){error.image = 'Upload an image'}
+    if(!input.summary.trim()){error.summary = 'Add a summary of your recipe'}
+    else if(parseInt(input.summary)){error.summary = 'Summary should contain at least one letter at the beginning'}
     if(input.healthScore < 0 || input.healthScore > 100){error.healthScore = 'The healtscore should be a number between 1 and 100'}
     if(!input.steps){error.steps = 'Add the steps for your recipe'}
     if(!input.diets.length){error.diets = 'You must select at least one diet type'}
@@ -30,10 +34,6 @@ export default function CreateRecipe(){
 
     })
 
-    useEffect(()=>{
-        dispatch(getDiets())
-    },[dispatch])
-
     function handleChange(e){
         setInput({
             ...input,
@@ -54,30 +54,42 @@ export default function CreateRecipe(){
 
     function handleSubmit(e){
         e.preventDefault();
+        setError(
+            validate({
+                ...input,
+                [e.target.name]: e.target.value,
+            })
+        )
         if (Object.values(error).length > 0) {
-            alert("Please complete the information required")}
-        else if (
-            input.name === '' 
-            && input.image === '' 
-            && input.summary === '' 
-            && input.healthScore === '' 
-            && input.steps === '' 
-            && input.diets === '')
-            alert("Please complete the form")
-        else{
-        dispatch(postRecipe(input));
-        alert('Recipe created successfully!')
-        setInput({
-            id:'',
-            name: '',
-            summary: '',
-            healthScore:'',
-            steps: '',
-            diets: []
-        })
-    history.push('/home')
+            alert("Please complete the information required");
         }
+        else if (!Object.values(error).length
+            && input.name  
+            && input.image 
+            && input.summary  
+            && input.healthScore 
+            && input.steps   
+            && input.diets) 
+            {
+                dispatch(postRecipe(input))
+                setInput({
+                    id:'',
+                    name: '',
+                    summary: '',
+                    healthScore:'',
+                    steps: '',
+                    diets: []
+                })
+
+            }
+            alert('Recipe created successfully!')
+            // else {
+            //     alert('Recipe not created');
+            //     return;
+            // }
+            history.push('/home')
     }
+
 
     function handleDelete(e){
         setInput({
@@ -85,10 +97,14 @@ export default function CreateRecipe(){
          diets: input.diets.filter( d => d !== e)
         })
     }
+    useEffect(()=>{
+        dispatch(getDiets())
+    },[dispatch])
 
     return(
 
-    <div>
+    <div className="fondoCreate">
+        <div className='containerCreate'>
         <Link to='/home'><button>Back to recipes</button></Link>
         <h3>Create your recipe</h3>
         <form onSubmit={e => handleSubmit(e)}>
@@ -123,6 +139,10 @@ export default function CreateRecipe(){
                 ))}
                 {error.diets && (<span>{error.diets}</span>)}
             </select>
+            <div>
+            <button className="buttonCreate" type="submit">Create recipe</button>
+            </div>
+        </form>
 
         {input.diets.map(e => {
             return(
@@ -131,10 +151,7 @@ export default function CreateRecipe(){
             </div>
         )}
         )}
-    
-        <button type="submit">Create recipe</button>
-
-        </form>
+    </div>
     </div>
     )
 }

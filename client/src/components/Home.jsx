@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect  } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
-import { getRecipes, getDiets, filterByDiet, orderByName, orderByHealthScore} from '../actions'
+import { getRecipes, getDiets, filterByDiet, filterCreated, orderByName, orderByHealthScore} from '../actions'
 import { Link } from 'react-router-dom'
 import CardRecipe from './CardRecipe'
 import Pagination from './Pagination'
@@ -39,6 +39,12 @@ function handleClick(e){
     setPage(1)
 }
 
+ function handleFilterCreated(e){
+     e.preventDefault();
+     dispatch(filterCreated(e.target.value));//el payload
+     setPage(1);
+     setOrder(e.target.value)}
+
 function handleFilterbyDiets(e){
     dispatch(filterByDiet(e.target.value))
 }
@@ -59,13 +65,13 @@ function handleSortHealth(e){
 
 return(
 
-    <div className='home'>
+    <div className='fondoHome'>
         <div className='navbar'>
-                <SearchBar/>
+        <SearchBar/>
+            <div className='totalFilters'>
                 <div className='recipeCreate'>
                     <Link to= '/recipes'>Create recipe</Link>
                 </div>
-            <div className='totalFilters'>
                 <span>Filter by</span>
                 <div className='recipeFilter'>
                     <select onChange={e => handleFilterbyDiets(e)}>
@@ -96,9 +102,22 @@ return(
                         <option value= 'desc'>Descendent</option>
                     </select>
                 </div>
+                <div>
+                <select onChange={e => handleFilterCreated(e)}>
+                 <option>Recipes</option>
+                 <option value='All'>All</option>
+                 <option value='Created'>Created</option>
+                 <option value='Api'>Existent</option>
+                </select>
+                </div>
             </div>
-                <button className='recipesBack' onClick= {e => handleClick(e)}>Back to all recipes</button>
+              
+            <div className='Pagination'>
                 <Pagination recipesPerPage = {recipesPerPage} allRecipes = {allRecipes.length} pagination = {pagination}/>
+                </div>
+                <div className='buttonRecipe'>
+                <button className='recipesBack' onClick= {e => handleClick(e)}>Back to all recipes</button>
+                </div>
         </div>
             <div className='allRecipes'>
                 {recipesPage?.map(e => {

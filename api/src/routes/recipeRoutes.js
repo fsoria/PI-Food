@@ -48,8 +48,6 @@ router.get('/:idReceta', async (req,res,next) =>{
 router.post('/', async (req,res,next) =>{
     const {id,name,summary,healthScore,image,step,createdInDB, diet} = req.body
 
-    try{
-
     const recipeCreated = await Recipe.create({
         id,
         name,
@@ -65,12 +63,9 @@ router.post('/', async (req,res,next) =>{
         name : diet
         }
     })
-    await recipeCreated.addDiet(dietCreated)
+    recipeCreated.addDiet(dietCreated)
     res.status(200).send('Recipe created succesfully')
-    }
-    catch(error){
-        next(error)
-    }
+
 })
 
 

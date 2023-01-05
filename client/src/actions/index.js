@@ -40,6 +40,7 @@ export function getDiets(){
     })
 }}
 
+
 export function getRecipeDetails(id){
     return async function(dispatch){
         try{
@@ -56,8 +57,14 @@ export function getRecipeDetails(id){
 
 export function postRecipe(payload){
     return async function(dispatch){
-    const json = await axios.post('http://localhost:3001/recipes', payload)
-    return json
+        const json = await axios.post('http://localhost:3001/recipes/'+ payload)
+        return json
+}}
+
+export function filterCreated(payload){
+    return {
+        type: 'FILTER_CREATED',
+        payload
     }
 }
 

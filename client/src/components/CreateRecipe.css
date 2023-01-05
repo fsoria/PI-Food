@@ -1,0 +1,33 @@
+.fondoCreate {
+    background-image: url('../images/kevin-mccutcheon-APDMfLHZiRA-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    max-height: 100wh;
+    font-weight: bold;
+    color:black;
+    padding-top: 80px;
+}
+
+.containerCreate{
+    padding-top: 20px;
+    margin-top: -80px;
+    margin-left: -3rem;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.error{
+    font-size: 13px;
+    color: rgb(240, 12, 12);
+}
+
+.formDiets{
+    list-style: none;
+}
+
+.buttonXdiets{
+    font-weight: bold;
+    color: rgb(10, 10, 10);
+}

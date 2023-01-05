@@ -2,12 +2,15 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipeDetails } from "../actions";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import './DetailsRecipe.css'
+
 
 
 export default function DetailsRecipe(){
     const dispatch = useDispatch()
     const { id } = useParams()
+    const location = useLocation()
 
     useEffect( () => {
         dispatch(getRecipeDetails(id))
@@ -16,19 +19,21 @@ export default function DetailsRecipe(){
     const detailRecipe = useSelector(state => state.details)
 
     return(
-        <div>
-            <h3>Details Recipe</h3>
+    <div className="fondoDetails">
+  
+            <button onClick={()=> location('/home')} >Back to home</button>
             {detailRecipe.length>0?
             <div>
             <h1>{detailRecipe[0].name}</h1>
-            <img src= {detailRecipe[0].image}/>
-            <h2>{detailRecipe[0].summary}</h2>
-            <h2>{detailRecipe[0].diets}</h2>
-            <span>{detailRecipe[0].healthScore}</span>
+            <img className="detailImage" src={detailRecipe[0].image} alt='not found'/>
+            <h3>Diet type: {detailRecipe[0].diets}</h3>
+            <h3>Healt score: {detailRecipe[0].healthScore}</h3>
+            <p>Summary: {detailRecipe[0].summary}</p>
             {/* <h3>{detailRecipe[0].steps}</h3> */}
             </div>:
-            <div>Loading...</div>
-            }
-        </div>
+            <div className="fondoLoading">Loading...</div>
+        }
+
+    </div>
         )  
     }

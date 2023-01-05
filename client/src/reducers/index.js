@@ -2,7 +2,6 @@ const initialState = {
     recipes : [],
     diets : [],
     allRecipes : [],
-    allDiets: [],
     details: []
 }
 
@@ -22,6 +21,16 @@ function rootReducer( state= initialState, action){
 
         case'POST_RECIPE':
         return {...state}
+
+        case 'FILTER_CREATED':
+        const filterCreated = action.payload === 'Created' ? 
+        state.allRecipes.filter(e => e.createdInDB) 
+        : state.allRecipes.filter( e => !e.createdInDB)
+        return {
+            ...state,
+            recipes: action.payload === 'All'? state.allRecipes 
+            : filterCreated  
+        }
 
         case 'FILTER_BY_DIET':
         const allRecipes = state.allRecipes

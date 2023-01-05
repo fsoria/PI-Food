@@ -4,12 +4,12 @@ import './CardRecipe.css'
 
 export default function CardRecipe({ name, image, diets, id, healthScore }){
     return (
-        <div className="cardsConteiner">
+        <div className="card">
             <Link to={`/recipes/${id}`}>
             <h3>{name}</h3>
-            <img className= 'cardRecipe' src= {image} alt='Not found'/>
+            <img className= 'cardImage' src= {image} alt='Not found'/>
             </Link>
-            <div className="diets">
+            <div>
                 {diets?.map(e =>
                 <h5>{e}</h5>)}
             </div> 

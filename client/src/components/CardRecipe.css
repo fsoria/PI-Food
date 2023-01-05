@@ -1,9 +1,7 @@
-
-.cardRecipe {    
-    box-shadow: 2px 2px 2px 1px rgb(11, 11, 11);
-    border-radius: 1px;
+.cardImage {    
+    border-radius: 2px;
+    border: rgb(255, 251, 251) 5px solid ;
     width: 350x;
     height: 250px; 
-    border: #9b9999 solid 5px;
-    text-shadow: 6px 4px 5px rgba(15, 13, 13, 0.04);
+    background-color: rgb(244, 242, 242);
 }
