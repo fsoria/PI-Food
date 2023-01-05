@@ -10,7 +10,7 @@ export default function Pagination({ recipesPerPage, allRecipes, pagination }){
     return(
         <div className='pagination'>
                 {pageNumbers?.map(paged =>
-                <button className = 'paginationBotton' onClick={() => pagination(paged)}>{paged}</button> )}
+                <button key={paged} className = 'paginationBotton' onClick={() => pagination(paged)}>{paged}</button> )}
         </div>
  
 )}

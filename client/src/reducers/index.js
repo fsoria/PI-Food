@@ -19,6 +19,9 @@ function rootReducer( state= initialState, action){
         case 'GET_RECIPE_DETAILS':
         return {...state, details: action.payload }
 
+        case 'CLEAN_RECIPE_DETAILS':
+        return {...state, details: action.payload }    
+
         case'POST_RECIPE':
         return {...state}
 

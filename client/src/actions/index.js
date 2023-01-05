@@ -42,8 +42,8 @@ export function getDiets(){
 
 
 export function getRecipeDetails(id){
-    return async function(dispatch){
-        try{
+    return async function(dispatch) {
+        try {
         const json = await axios.get('http://localhost:3001/recipes/'+ id)
         return dispatch({
             type: 'GET_RECIPE_DETAILS',
@@ -55,11 +55,18 @@ export function getRecipeDetails(id){
     }
 }
 
+export function cleanRecipeDetails(payload) {
+    return dispatch => {
+        dispatch({ type: 'CLEAN_RECIPE_DETAILS', payload})
+    }
+};
+
 export function postRecipe(payload){
-    return async function(dispatch){
-        const json = await axios.post('http://localhost:3001/recipes/'+ payload)
-        return json
-}}
+    return dispatch => {
+        return axios.post('http://localhost:3001/recipes', payload)
+        .then(res => console.log(res))
+    }
+}
 
 export function filterCreated(payload){
     return {

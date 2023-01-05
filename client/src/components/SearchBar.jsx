@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { getRecipesName } from "../actions";
 

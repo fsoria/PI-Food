@@ -16,10 +16,10 @@ export default function Home(){
 const dispatch = useDispatch()
 
 const allRecipes = useSelector((state) => state.recipes)
-// const allDiets = useSelector((state) => state.diets)
+const allDiets = useSelector((state) => state.diets)
 const [ page, setPage ] = useState(1)
-const [ recipesPerPage, setRecipesPerPage ] = useState(9)
-const [ order, setOrder] = useState('')
+const [ recipesPerPage, /*setRecipesPerPage*/ ] = useState(9)
+const [ /*order*/, setOrder] = useState('')
 const lastRecipe = page * recipesPerPage // 1 * 9 = 9
 const firstRecipe = lastRecipe - recipesPerPage // 9 - 9 = 0
 const recipesPage = allRecipes.slice(firstRecipe,lastRecipe)
@@ -29,9 +29,9 @@ const pagination = (pageNumber) =>{
 }
 
 useEffect( () => {
-    dispatch(getRecipes())
-    dispatch(getDiets())
-    },[dispatch])
+    if(!allRecipes.length) dispatch(getRecipes())
+    if(!allDiets.length) dispatch(getDiets())
+    },[]) 
 
 function handleClick(e){
     e.preventDefault()
@@ -41,7 +41,7 @@ function handleClick(e){
 
  function handleFilterCreated(e){
      e.preventDefault();
-     dispatch(filterCreated(e.target.value));//el payload
+     dispatch(filterCreated(e.target.value));
      setPage(1);
      setOrder(e.target.value)}
 
@@ -122,16 +122,17 @@ return(
             <div className='allRecipes'>
                 {recipesPage?.map(e => {
                     return(
-                        <Link to={`/recipes/:${e.id}`}>
-                    <div className='cardgrid'>
-                        <CardRecipe  
-                        name={e.name} 
-                        image= {e.image} 
-                        diets={e.diets}
-                        healthScore={e.healthScore}
-                        id={e.id}/>
-                    </div>
-                        </Link>
+                    <Link to={`/recipes/${e.id}`} key={e.id}>
+                        <div className='cardgrid'>
+                            <CardRecipe
+                                name={e.name} 
+                                image= {e.image} 
+                                diets={e.diets}
+                                healthScore={e.healthScore}
+                                id={e.id}
+                            />
+                        </div>
+                    </Link>
                 )})}
             </div>
     </div>

@@ -8,7 +8,7 @@ const router = Router();
 
 
 router.get('/', async (req, res, next) =>{
-    const name = req.query.name
+    const { name } = req.query
     const recipesTotal = await getTotalRecipes();
     try{
         if(!name){
@@ -28,7 +28,7 @@ router.get('/', async (req, res, next) =>{
 
 
 router.get('/:idReceta', async (req,res,next) =>{
-    const idReceta  = req.params.idReceta
+    const { idReceta }  = req.params
     const recipesTotal = await getTotalRecipes();
     const recipeId = recipesTotal.filter(e => e.id.toString() === idReceta.toString())
     try{
@@ -45,28 +45,27 @@ router.get('/:idReceta', async (req,res,next) =>{
 })
 
 
-router.post('/', async (req,res,next) =>{
-    const {id,name,summary,healthScore,image,step,createdInDB, diet} = req.body
-
-    const recipeCreated = await Recipe.create({
-        id,
-        name,
-        summary,
-        healthScore,
-        image,
-        step,
-        createdInDB
-    })
-
-    const dietCreated = await Diet.findAll({
-        where:{
-        name : diet
-        }
-    })
-    recipeCreated.addDiet(dietCreated)
-    res.status(200).send('Recipe created succesfully')
-
+router.post('/', async (req, res, next) => {
+    const {name, summary, healthScore, image, step, createdInDb, diet} = req.body
+    try {
+        const recipeCreated = await Recipe.create({
+            name,
+            summary,
+            healthScore,
+            image,
+            step,
+            createdInDb,
+        })
+        const dietCreated = await Diet.findAll({
+            where:{
+                name : diet
+            }
+        })
+        recipeCreated.addDiet(dietCreated)
+        res.status(201).send('Recipe created succesfully')  
+    } catch (error) {
+        console.log(error)
+    }
 })
-
 
 module.exports = router
