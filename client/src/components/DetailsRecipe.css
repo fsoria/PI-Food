@@ -1,13 +1,21 @@
 .fondoDetails {
-    background-color: gray;
-    color:white
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    background-color: grey;
+
 }
 
 .detailImage {
-    width: 350x;
-    height: 300px; 
+    margin: 5px;
+    display: center;   
+    box-shadow: 3px 3px 5px 1px rgb(48, 47, 47);
+    width: 400px;
+    height: 250px;
+    justify-content: center;
 }
 
-/* .fondoLoading{
+.fondoLoading{
     background-image: url('../images/mae-mu-Pvclb-iHHYY-unsplash.jpg');
-} */
+    margin: auto;
+}

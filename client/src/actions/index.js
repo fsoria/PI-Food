@@ -56,13 +56,13 @@ export function getRecipeDetails(id){
 }
 
 export function cleanRecipeDetails(payload) {
-    return dispatch => {
+    return (dispatch) => {
         dispatch({ type: 'CLEAN_RECIPE_DETAILS', payload})
     }
 };
 
 export function postRecipe(payload){
-    return dispatch => {
+    return (dispatch) => {
         return axios.post('http://localhost:3001/recipes', payload)
         .then(res => console.log(res))
     }

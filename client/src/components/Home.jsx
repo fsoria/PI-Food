@@ -113,7 +113,7 @@ return(
             </div>
               
             <div className='Pagination'>
-                <Pagination recipesPerPage = {recipesPerPage} allRecipes = {allRecipes.length} pagination = {pagination}/>
+                <Pagination recipesPerPage = {recipesPerPage} allRecipes = {allRecipes.length} pagination = {pagination} page = {page}/>
                 </div>
                 <div className='buttonRecipe'>
                 <button className='recipesBack' onClick= {e => handleClick(e)}>Back to all recipes</button>

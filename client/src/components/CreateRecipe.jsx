@@ -35,7 +35,7 @@ export default function CreateRecipe(){
     
     useEffect(()=>{
         if(!diets.length) dispatch(getDiets())
-    },[]) // eslint-disable-line react-hooks/exhaustive-deps
+    },[]) 
 
     function handleChange(e){
         setInput({
@@ -73,12 +73,12 @@ export default function CreateRecipe(){
     function handleSubmit(e){ 
         e.preventDefault();     
         dispatch(postRecipe(input))    
-        dispatch(getRecipes())  // para que recargue en el home la receta creada
+        dispatch(getRecipes())  
         alert('Recipe created successfully!')
         history.push('/home')
     };
 
-    const disabled = Object.keys(error).length || !input.name // para que se pueda mandar tiene que ser false
+    const disabled = Object.keys(error).length || !input.name 
 
     return(
 

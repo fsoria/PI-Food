@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     step:{
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     createdInDB: {
       type: DataTypes.BOOLEAN,
