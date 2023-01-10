@@ -66,12 +66,13 @@ function handleSortHealth(e){
 return(
 
     <div className='fondoHome'>
+     
         <div className='navbar'>
+        
         <SearchBar/>
+      
             <div className='totalFilters'>
-                <div className='recipeCreate'>
-                    <Link to= '/recipes'>Create recipe</Link>
-                </div>
+                
                 <span>Filter by</span>
                 <div className='recipeFilter'>
                     <select onChange={e => handleFilterbyDiets(e)}>
@@ -114,10 +115,13 @@ return(
               
             <div className='Pagination'>
                 <Pagination recipesPerPage = {recipesPerPage} allRecipes = {allRecipes.length} pagination = {pagination} page = {page}/>
-                </div>
-                <div className='buttonRecipe'>
+             </div>
+            <div className='buttonRecipe'>
                 <button className='recipesBack' onClick= {e => handleClick(e)}>Back to all recipes</button>
-                </div>
+            </div>
+            <div className='recipeCreate'>
+                    <Link to= '/recipes' className='CreateRecipe'>Create recipe</Link>
+            </div>
         </div>
             <div className='allRecipes'>
                 {recipesPage?.map(e => {

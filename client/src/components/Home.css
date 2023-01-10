@@ -1,104 +1,108 @@
 .fondoHome{
-
-    background-image: url('../images/rae-wallis-aFaVy2_tBCo-unsplash.jpg');
+    background-image: url('../images/Home.jpg');
     min-height: 100vh;
     max-height: 100wh;
     background-position: 0cm;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    scroll-behavior: initial;
+    /* scroll-behavior: initial; */
 } 
 
-.recipeCreate{
-    /* margin-right: 2rem;
-    float: right;
-    font-size: large;
-    font-weight: bold;
-    color: rgb(11, 7, 7);
-    text-decoration: none;
-    opacity: 0.7; 
-}
 
-.allRecipes{
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fill, 270px); */
-    /* gap: 50px;
-    padding: 40px;
-    margin-block: 5px; */
-    /* justify-content: center;
-    color: rgb(18, 18, 18); */
-    /* transition: margin-left 0.3s 0.1s; */
+.CreateRecipe{
+    background-color: transparent;
+    color: rgb(11, 11, 11);
+    font-weight: bold;
+    font-size: 14.5px;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: solid 2px;
+    margin-left: -45rem;
+    opacity: 0.9;
+    text-decoration-line: none;
+    box-sizing: content-box;
+    font: bold;
+    align-items: center;
+    font: bold;
+    padding-top: -1px;
+    padding-right: 6px ; 
+    padding-left: 6px ;
 }
 
 .recipesBack{
-    /* background-color: transparent;
-    color: rgb(250, 246, 246);
+    background-color: transparent;
+    color: rgb(11, 11, 11);
     font-weight: bold;
     font-size: small;
-    justify-content: center;
     cursor: pointer;
-    
-    outline: none;
-    border: none;
-    margin-left: 5rem;
-    opacity: 0.9; */
-
+    border-radius: 2px;
+    margin-left: -4rem;
+    opacity: 0.9;
+    font: bold;
+    padding-top: 4.5px;
 }
 
 
 .navbar{
     background-color: transparent;
     height: 15rem;
-justify-content:first baseline;
+    justify-content:center;
 }  
 
 .navbarSearch{
     padding: 2rem;
-    height: 15px;
-    margin-left: -55rem;
+    height: 20px;
+    margin-left: -10rem;
     
 }
 
 .totalFilters{
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     padding: 1px;
     margin-bottom: 1rem;
+    margin-left: -10rem;
 } 
 .Pagination{
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     margin-left: 4rem;
     padding: 1px;
+    margin-left: -10rem;
 }
 
 .buttonRecipe{
-    cursor: pointer;
+   
     float: left;
-    justify-content: left;
+    justify-content: center;
     margin-left: 18rem;
     padding: 1px;
+    margin-left: 38rem;
+    cursor: pointer;
 }
 
 
 .cardgrid{
-    border: #545353b4 solid 10px;
+    border: #545353b4 metalic 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font: bold;
-    color: rgb(243, 244, 244);
+    color: rgb(19, 19, 19);
     overflow: hidden;
-    margin-top: 1rem;
-    margin-left: 10rem;
-    justify-content: flex-start; 
-    display: block; 
-    padding: 5px;
-    flex-wrap: nowrap;
-    background-color: transparent; 
+    margin-top: 5rem;
+    margin-left: 1rem;
+
+    box-shadow: 5px 5px 5px 1px rgb(34, 33, 33);
+    padding: 10px;
+    margin-right: 20rem ;
+    margin-left: 15rem;
+
+    background-color: whitesmoke; 
     width:max-content;
-    height: min-content;    
+    height: min-content;
+    margin-left: 32rem;    
 }
 
 .recipeFilter{
