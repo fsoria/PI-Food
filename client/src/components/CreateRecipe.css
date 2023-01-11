@@ -6,28 +6,76 @@
     min-height: 100vh;
     max-height: 100wh;
     font-weight: bold;
-    color:black;
-    padding-top: 80px;
+    color:rgb(18, 18, 18);
+    padding-top: 40px;
+
 }
 
-.containerCreate{
-    padding-top: 20px;
-    margin-top: -80px;
-    margin-left: -3rem;
-    border-radius: 10px;
-    background: transparent;
+.buttonBackRecipes{
+    background-color: transparent;
+    color: rgb(11, 11, 11);
+    font-weight: bold;
+    font-size: small;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-left: 0rem;
+    opacity: 0.9;
+    font: bold;
+    padding-top: 4.5px;
+
+
+
+
+}
+
+.titleCreate{
+    color: rgb(9, 9, 9);
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 400px;
+    height: 50px;
+    font-size: 28px;
+    margin-inline: 350px;
+    margin-top: 40px;
+    margin-left: 550px;
 }
 
 .error{
-    font-size: 13px;
-    color: rgb(240, 12, 12);
+    font-size: 14px;
+    color: rgb(244, 6, 6);
+    background-color: white;
 }
 
 .formDiets{
     list-style: none;
+    margin-top: 10px;
 }
+
+.input{
+    display: flex;
+    width: 250px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 625px;
+    border-radius: 7px;
+    padding-top: 0px;
+    
+}
+
+.containerCreate{
+    padding-top: 20px;
+    border-radius: 10px;
+    background: transparent;
+    box-sizing: border-box;
+    margin-top: -50px;
+} 
 
 .buttonXdiets{
     font-weight: bold;
     color: rgb(10, 10, 10);
 }
+
+
+
+
+

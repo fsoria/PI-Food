@@ -64,63 +64,50 @@ function handleSortHealth(e){
 }
 
 return(
-
     <div className='fondoHome'>
-     
+    <div>
+    <Link to= '/recipes' className='CreateRecipe' >Create recipe</Link>
+    </div>
         <div className='navbar'>
-        
         <SearchBar/>
-      
-            <div className='totalFilters'>
-                
+             <div className='filters'>
                 <span>Filter by</span>
-                <div className='recipeFilter'>
-                    <select onChange={e => handleFilterbyDiets(e)}>
-                        <option value= 'all diets'>All diets</option>
-                        <option value= 'dairy free'>Dairy free</option>
-                        <option value= 'gluten free'>Gluten free</option>
-                        <option value= 'lacto ovo vegetarian'>Lacto ovo vegetarian</option>
-                        <option value= 'vegan'>Vegan</option>
-                        <option value= 'pescatarian'>Pescatarian</option>
-                        <option value= 'fodmap firendly'>Fodmap firendly</option>
-                        <option value= 'whole 30'>Whole 30</option>
-                        <option value= 'primal'>Primal</option>
-                        <option value= 'paleolithic'>Paleolithic</option>
-                        <option value= 'ketogenic'>Ketogenic</option>
+                    <select onChange={(e) => handleFilterbyDiets(e)}>
+                        <option>Diet type</option>
+                        <option value='All'>All</option>
+                        {allDiets.map((e) => (
+                        <option>{e}</option>))}
                     </select>
-                </div>
-                <div className='recipeOrderName'>
+            
+                </div>   
+            <div className='order'>
                 <span>Order by</span>
                     <select onChange={e => handleSortName(e)}>
                         <option value= 'asc'>A-Z</option>
                         <option value= 'desc'>Z-A</option>
                     </select>
-                </div>
-                <div className='recipeOrderHealth'>
-                <span>Healt score</span>
                     <select onChange={e => handleSortHealth(e)}>
+                        <option value= 'asc'>Healt score</option>
                         <option value= 'asc'>Ascendent</option>
                         <option value= 'desc'>Descendent</option>
                     </select>
-                </div>
-                <div>
+            </div>
+            <div className='filterByRecipes'>
+                <span>Created/Existent</span>
                 <select onChange={e => handleFilterCreated(e)}>
-                 <option>Recipes</option>
                  <option value='All'>All</option>
                  <option value='Created'>Created</option>
                  <option value='Api'>Existent</option>
                 </select>
-                </div>
-            </div>
-              
+            </div> 
             <div className='Pagination'>
                 <Pagination recipesPerPage = {recipesPerPage} allRecipes = {allRecipes.length} pagination = {pagination} page = {page}/>
              </div>
-            <div className='buttonRecipe'>
+             <div className='buttonsBackCreate'>
+             
                 <button className='recipesBack' onClick= {e => handleClick(e)}>Back to all recipes</button>
-            </div>
-            <div className='recipeCreate'>
-                    <Link to= '/recipes' className='CreateRecipe'>Create recipe</Link>
+           
+         
             </div>
         </div>
             <div className='allRecipes'>

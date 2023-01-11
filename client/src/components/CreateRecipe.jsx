@@ -82,55 +82,64 @@ export default function CreateRecipe(){
 
     return(
 
+   
         <div className="fondoCreate">
+        <div>
+        <Link to='/home'><button className="buttonBackRecipes" >Back to recipes</button></Link>
+        <h3  className="titleCreate">Create your recipe</h3>
+
+  
+
+        </div>
             <div className='containerCreate'>
-            <Link to='/home'><button>Back to recipes</button></Link>
-            <h3>Create your recipe</h3>
             <form onSubmit={e => handleSubmit(e)}>
                 <div>
-                    <label>Name:</label>
-                    <input type='text' value={input.name} name='name' onChange={e => handleChange(e)}/>
+                    <label >Name:</label>
+                    <input type='text'className="input" value={input.name} name='name' onChange={e => handleChange(e)}/>
                     {error.name && (<span className="error">{error.name}</span>)}
                 </div>
                 <div>
                     <label>Summary:</label>
-                    <input type='text' value={input.summary} name='summary'onChange={e => handleChange(e)}/>
-                    {error.summary && (<span className="error">{error.summary}</span>)}
+                    <input type='text' className="input" value={input.summary} name='summary'onChange={e => handleChange(e)}/>
+                    {error.summary && 
+                    (<span className="error">{error.summary}</span>)}
                 </div>
                 <div>
                     <label>Image:</label>
-                    <input type='text' value={input.image} name='image'onChange={e => handleChange(e)}/>
+                    <input type='text'className="input" value={input.image} name='image'onChange={e => handleChange(e)}/>
                     {error.image && (<span className="error">{error.image}</span>)}
                 </div>
                 <div>
                     <label>Steps:</label>
-                    <textarea type="text" value={input.step}  name="step" rows="4" cols="40" onChange={e => handleChange(e)}/>
+                    <textarea type="text" className="input" value={input.step}  name="step" rows="4" cols="40" onChange={e => handleChange(e)}/>
                     {error.step && (<span className="error">{error.step}</span>)}
                 </div>
                 <div>
                     <label>Healt score:</label>
-                    <input type='number' value={input.healthScore} name='healthScore'onChange={e => handleChange(e)}/>
+                    <input type='number'className="input" value={input.healthScore} name='healthScore'onChange={e => handleChange(e)}/>
                     {error.healthScore && (<span className="error">{error.healthScore}</span>)}
                 </div>
+                <div className='formDiets'>
                 <select onChange={e => handleSelect(e)}>
                     {diets.map((e, i) => (
-                        <option key= {i} value={e.name}>{e}</option>
+                        <option key= {i} value={e.name} >{e}</option>
                     ))}
                     {error.diets && (<option>{error.diets}</option>)}
                 </select>
+                </div>
                 <div>
                 <button disabled={disabled} className="buttonCreate" type="submit">Create recipe</button>
                 </div>
             </form>
+            </div>
 
             {input.diets.map((e, i) => {
                 return(
-                    <div key= {i} className="formDiets">
+                    <div key= {i} className="input">
                     <span>{e} <button className="buttonXdiets" onClick={() => handleDelete(e)}>X</button> </span>
                 </div>
             )}
             )}
-        </div>
         </div>
     )
 }
