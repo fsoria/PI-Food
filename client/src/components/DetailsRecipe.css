@@ -23,7 +23,7 @@
     font-size: small;
     cursor: pointer;
     border-radius: 2px;
-    margin-left: -4rem;
+    margin-left: -1rem;
     opacity: 0.9;
     font: bold;
     padding-top: 4.5px;
@@ -38,10 +38,8 @@
     padding: 1px black;
     margin-right: 55rem ;
     margin-left: 33.1rem; 
-
 }
 
-/* .fondoLoading{
-    background-image: url('../images/mae-mu-Pvclb-iHHYY-unsplash.jpg');
-    margin: auto;
-} */
+.fondoLoading{
+ font-size: 20px;
+}

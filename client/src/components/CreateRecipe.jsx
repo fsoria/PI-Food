@@ -78,18 +78,13 @@ export default function CreateRecipe(){
         history.push('/home')
     };
 
-    const disabled = Object.keys(error).length || !input.name 
+    const disabled = Object.keys(error).length 
 
     return(
-
-   
         <div className="fondoCreate">
         <div>
         <Link to='/home'><button className="buttonBackRecipes" >Back to recipes</button></Link>
         <h3  className="titleCreate">Create your recipe</h3>
-
-  
-
         </div>
             <div className='containerCreate'>
             <form onSubmit={e => handleSubmit(e)}>

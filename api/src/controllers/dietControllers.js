@@ -5,7 +5,7 @@ const { API_URL, API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5, API_KEY6, API
 
 const getTotalDiets = async (req, res, next) =>{
     try {
-        let dietUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY1}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}})
+        let dietUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY2}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}})
         let dietApi = await dietUrl.data.results.map(e => e.diets)
         let totalDietApi = dietApi.flat()
         totalDietApi.forEach(diet => {
@@ -14,7 +14,7 @@ const getTotalDiets = async (req, res, next) =>{
                     name: diet}
                 }) 
         });
-        console.log('diets cargadas en db')
+        // console.log('diets cargadas en db')
     } catch (error) {
         next(error)
     }

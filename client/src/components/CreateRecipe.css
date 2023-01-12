@@ -22,10 +22,6 @@
     opacity: 0.9;
     font: bold;
     padding-top: 4.5px;
-
-
-
-
 }
 
 .titleCreate{
@@ -37,7 +33,7 @@
     font-size: 28px;
     margin-inline: 350px;
     margin-top: 40px;
-    margin-left: 550px;
+    margin-left: 557px;
 }
 
 .error{
@@ -56,10 +52,9 @@
     width: 250px;
     height: 25px;
     margin-top: 10px;
-    margin-left: 625px;
+    margin-left: 630px;
     border-radius: 7px;
-    padding-top: 0px;
-    
+    padding-top: 0px; 
 }
 
 .containerCreate{

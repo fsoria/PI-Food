@@ -18,10 +18,10 @@ export default function Pagination({ recipesPerPage, allRecipes, pagination, pag
                 { page >= 2 && 
                 <button onClick={() => pagination(previousPage)} className="buttonPrevNext">{"<"}</button>}
                 {pageNumbers?.map(paged =>
-                <button key={paged} onClick={() => pagination(paged)} className = {page === paged ? 'pagination-active' : 'pagination'}>{paged}</button> )}
+                <button key={paged} onClick={() => pagination(paged)} className = {page === paged ? 'pagination-active' : 'pagination'}>{paged}</button>)}
                 { page >= 1 && page < Math.ceil(allRecipes/recipesPerPage) && 
                 <button onClick={() => pagination(nextPage)} className="buttonPrevNext">{">"}</button>}
-                { page <= (allRecipes/recipesPerPage) && 
+                { page < (allRecipes/recipesPerPage) && 
                 <button onClick={() => pagination(Math.ceil(allRecipes/recipesPerPage))} className="buttonPrevNext">{">>"}</button>}
                 </ul>
             </div>
