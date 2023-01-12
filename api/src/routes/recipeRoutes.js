@@ -7,6 +7,7 @@ const { Recipe, Diet } = require('../db');
 const router = Router();
 
 
+
 router.get('/', async (req, res, next) =>{
     const { name } = req.query
     const recipesTotal = await getTotalRecipes();
@@ -65,6 +66,17 @@ router.post('/', async (req, res, next) => {
         res.status(201).send('Recipe created succesfully')  
     } catch (error) {
         console.log(error)
+    }
+})
+
+router.delete('/:id/delete', async (req, res, next) =>{
+    const { id } = req.params;
+    try {
+        let recipeDelete = await Recipe.findByPk(id)
+        recipeDelete.destroy();
+        res.status(201).send("Recipe deleted correctly");
+    } catch (err) {
+        next(err)
     }
 })
 

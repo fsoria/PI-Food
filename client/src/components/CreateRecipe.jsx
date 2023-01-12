@@ -35,7 +35,7 @@ export default function CreateRecipe(){
     
     useEffect(()=>{
         if(!diets.length) dispatch(getDiets())
-    },[]) 
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     function handleChange(e){
         setInput({
@@ -117,7 +117,7 @@ export default function CreateRecipe(){
                 <div className='formDiets'>
                 <select onChange={e => handleSelect(e)}>
                     {diets.map((e, i) => (
-                        <option key= {i} value={e.name} >{e}</option>
+                        <option key= {i} value={e.name}>{e}</option>
                     ))}
                     {error.diets && (<option>{error.diets}</option>)}
                 </select>

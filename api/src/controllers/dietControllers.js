@@ -5,21 +5,27 @@ const { API_URL, API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5, API_KEY6, API
 
 const getTotalDiets = async (req, res, next) =>{
     try {
-        let dietUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY2}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}})
+        let dietUrl = await axios.get(`${API_URL}complexSearch?apiKey=${API_KEY9}&addRecipeInformation=true&number=100&offset=100`, {headers:{'Accept-Encoding': 'identity'}})
         let dietApi = await dietUrl.data.results.map(e => e.diets)
-        let totalDietApi = dietApi.flat()
-        totalDietApi.forEach(diet => {
+        let finalDiets = []
+        let totalDietApi = dietApi.flat().forEach(diet => {
+            let totalDietApi = dietApi.flat().forEach((diet) => {
+                if (!finalDiets.includes(diet)) {
+                    finalDiets.push(diet);
+                }
+            })
+            finalDiets.forEach(diets => {
             Diet.findOrCreate({
                 where:{
                     name: diet}
                 }) 
         });
-        // console.log('diets cargadas en db')
+    })
+        console.log('diets cargadas en db')
     } catch (error) {
         next(error)
     }
 };
-
 
 const getDbDiets = async (req, res, next) => {
     try {

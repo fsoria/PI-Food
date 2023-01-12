@@ -1,5 +1,5 @@
 .fondoCreate {
-    background-image: url('../images/CreateRecipe.jpg');
+    background-image: url('../images/ella-olsson-rD3YrnhTmf0-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -10,7 +10,6 @@
     padding-top: 40px;
 
 }
-
 .buttonBackRecipes{
     background-color: transparent;
     color: rgb(11, 11, 11);

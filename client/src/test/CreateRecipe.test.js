@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import CreateRecipe from '../components/CreateRecipe';
-import axios from 'axios';
+
 
 
 
@@ -19,10 +19,10 @@ describe('<CreateRecipe />', () => {
   beforeEach(() => {
     wrapper = render(<CreateRecipe />);
   });
-  it('El form debe tener un label que diga: "name:"', () => {
+  it('El form debe tener un label que diga: "name"', () => {
       const { container } = render(<CreateRecipe />)
-      const element = container.querySelectorAll('name')[0]
-      expect(element.innerHTML).toBe('name:');
+      const element = container.querySelectorAll('name')
+      expect(element.innerHTML).toBe('name');
   });
 })
 

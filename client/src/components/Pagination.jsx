@@ -1,7 +1,13 @@
 import React from "react";
 import './Pagination.css'
+import { useDispatch, useSelector } from "react-redux";
+import { changeCurrentPage } from '../actions/index'
 
-export default function Pagination({ recipesPerPage, allRecipes, pagination, page, lastRecipe}){
+export default function Pagination({ recipesPerPage, allRecipes }){
+
+    const dispatch = useDispatch();
+    const page = useSelector(state => state.currentPage)
+
     const pageNumbers = []
     const previousPage = page - 1
     const nextPage = page + 1
@@ -9,6 +15,11 @@ export default function Pagination({ recipesPerPage, allRecipes, pagination, pag
     for (let i=1; i<= Math.ceil(allRecipes/recipesPerPage); i++){
         pageNumbers.push(i)
     }
+    
+    const pagination = (num) =>{
+        dispatch(changeCurrentPage(num))
+    }
+
     return(
         <div >
             <div className='paginationConteiner'>

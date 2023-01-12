@@ -95,3 +95,15 @@ export function orderByHealthScore(payload){
         payload
     }
 }
+
+export function cleanAllFilters(){
+    return dispatch => {
+        dispatch({ type: 'CLEAN_FILTERS' })
+    }
+};
+
+export const changeCurrentPage = payload => {
+    return dispatch => {
+        dispatch({ type: 'CURRENT_PAGE', payload})
+    }
+};

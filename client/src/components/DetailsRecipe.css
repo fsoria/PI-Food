@@ -1,7 +1,7 @@
 .fondoDetails {
     background-image: url('../images/DetailsRecipe.jpg');
-    min-height: 100vh;
-    max-height: 100wh;
+    min-height: 160vh;
+    max-height: 120wh;
     scroll-behavior: initial; 
     background-clip: padding-box;
     background-size:  cover;    
